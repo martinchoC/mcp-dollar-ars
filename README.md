@@ -133,6 +133,7 @@ mcp-dollar-ars/
 
 ## 🔄 Flujo del Sistema
 
+```mermaid
 graph TD
 A[1. Usuario: Consulta] --> B{autogen_gemini_client.py};
 B --> C[2. Gemini 2.5 Flash (LLM)];
@@ -144,6 +145,7 @@ D -- 7. Resultado Herramienta --> B;
 B -- 8. Prompt + Datos --> C;
 C -- 9. Respuesta Final] --> B;
 B --> A;
+
 
 ## 🎯 Casos de Uso
 
@@ -165,6 +167,7 @@ Este proyecto está bajo la Licencia Apache 2.0 - ver el archivo [LICENSE](https
 _Última actualización: Octubre 2025_
 
 </div>
+
 
 
 
