@@ -102,21 +102,22 @@ El sistema entiende consultas en lenguaje natural:
 ## 🏗️ Estructura del Proyecto
 
 mcp-dollar-ars/
-├── **__init__.py** # 🚀 Punto de inicio del sistema (Arranca Servidor y Cliente
 
-├── **dollar_server.py** # 📡 Servidor Flask con APIs REST (Datos reales/simulados)
+├── **__init__.py**                  # 🚀 Punto de inicio del sistema (Arranca Servidor y Cliente
 
-├── **mcp_server.py** # 🔧 Implementa el Servidor MCP (wrapper de herramientas)
+├── **dollar_server.py**             # 📡 Servidor Flask con APIs REST (Datos reales/simulados)
 
-├── **gemini_autogen_adapter.py** # ⚙️ Adaptador para conectar Gemini con AutoGen
+├── **mcp_server.py**                # 🔧 Implementa el Servidor MCP (wrapper de herramientas)
 
-├── **autogen_gemini_client.py** # 🧠 Cliente principal (Agentes AutoGen + Gemini)
+├── **gemini_autogen_adapter.py**    # ⚙️ Adaptador para conectar Gemini con AutoGen
 
-├── requirements.txt # Dependencias
+├── **autogen_gemini_client.py**     # 🧠 Cliente principal (Agentes AutoGen + Gemini)
 
-├── .env # Variables de entorno (GEMINI_API_KEY)
+├── requirements.txt                 # Dependencias
 
-└── README.md # Documentación
+├── .env                             # Variables de entorno (GEMINI_API_KEY)
+
+└── README.md                        # Documentación
 
 ---
 ## 🔧 Archivos Principales
@@ -133,15 +134,25 @@ mcp-dollar-ars/
 ## 🔄 Flujo del Sistema
 
 graph TD
+
     A[1. Usuario: Consulta] --> B{autogen_gemini_client.py};
+    
     B --> C[2. Gemini 2.5 Flash (LLM)];
-    C -- 3. Decide usar Herramienta (Ej. get_dollar_history) --> B;
+    
+    C -- 3. Decide usar Herramienta --> B;
+    
     B -- 4. Ejecuta Wrapper (call_mcp_tool) --> D[mcp_server.py (Capa MCP)];
+    
     D -- 5. Petición HTTP --> E[dollar_server.py (API Datos)];
+    
     E -- 6. Respuesta Datos (JSON/Texto) --> D;
-    D -- 7. Resultado de Herramienta (Texto de Análisis) --> B;
+    
+    D -- 7. Resultado de Herramienta --> B;
+    
     B -- 8. Prompt + Datos --> C;
+    
     C -- 9. Respuesta Final Formateada --> B;
+    
     B --> A;
   
 ## 🎯 Casos de Uso
@@ -164,3 +175,4 @@ Este proyecto está bajo la Licencia Apache 2.0 - ver el archivo [LICENSE](https
 _Última actualización: Octubre 2025_
 
 </div>
+
