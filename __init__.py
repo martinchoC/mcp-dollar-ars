@@ -26,8 +26,7 @@ def wait_for_server():
     return False
 
 def main():
-    """Sistema final con Gemini 2.5 Flash funcionando"""
-    print("💵 SISTEMA FINAL: Gemini 2.5 Flash + APIs Reales")
+    print("💵 Sistema de Consultas de Dólar USD/ARS con AutoGen y Gemini 2.5 Flash")
     print("="*50)
     
     # Iniciar servidor en hilo separado

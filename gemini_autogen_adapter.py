@@ -7,7 +7,7 @@ import json
 load_dotenv()
 
 class GeminiAutogenAdapter:
-    """Adaptador corregido para usar Gemini con AutoGen"""
+    """Adaptador para usar Gemini con AutoGen"""
     
     def __init__(self):
         api_key = os.getenv("GEMINI_API_KEY")
@@ -21,7 +21,6 @@ class GeminiAutogenAdapter:
         print("✅ Adaptador Gemini 2.5 Flash configurado correctamente")
     
     def create_chat_completion(self, messages: List[Dict[str, str]], **kwargs) -> Dict[str, Any]:
-        """Crea una completion de chat compatible con AutoGen usando Gemini"""
         
         # Convertir mensajes de AutoGen a prompt de Gemini
         prompt = self._format_messages_for_gemini(messages)
@@ -63,7 +62,7 @@ class GeminiAutogenAdapter:
     def _format_messages_for_gemini(self, messages: List[Dict[str, str]]) -> str:
         """Formatea los mensajes de AutoGen para Gemini"""
         
-        formatted_text = "Eres un analista financiero especializado en el dólar argentino. Responde en español.\n\n"
+        formatted_text = "Sos un analista financiero especializado en el dólar argentino. Respondé en español.\n\n"
         
         for message in messages:
             role = message.get("role", "")

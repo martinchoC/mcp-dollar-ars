@@ -13,15 +13,14 @@ class AutoGenGeminiClient:
         self.setup_autogen_with_gemini()
     
     def setup_autogen_with_gemini(self):
-        """Configura AutoGen para usar Gemini como backend - VERSIÓN CORREGIDA"""
+        """Configura AutoGen para usar Gemini como backend"""
         
-        # Configuración MÍNIMA para Gemini - sin el parámetro 'client' que causa problemas
+        # Configuración MÍNIMA para Gemini
         self.llm_config = {
             "config_list": [
                 {
                     "model": "gemini-2.5-flash",
-                    "api_key": "dummy-key",  # Solo para cumplir con AutoGen
-                    # NO incluir 'client' aquí - causa el error
+                    "api_key": "dummy-key",  
                 }
             ],
             "functions": mcp_server.get_tools(),
@@ -55,12 +54,12 @@ class AutoGenGeminiClient:
             llm_config=self.llm_config
         )
         
-        # Registrar funciones MCP usando nuestro adaptador personalizado
+        # Registrar funciones MCP usando el adaptador personalizado
         self.register_mcp_functions_with_adapter()
         print("✅ AutoGen configurado con Gemini 2.5 Flash")
     
     def register_mcp_functions_with_adapter(self):
-        """Registra las funciones MCP usando nuestro adaptador personalizado"""
+        """Registra las funciones MCP usando el adaptador personalizado"""
         
         def call_mcp_tool(function_name, **kwargs):
             """Wrapper para llamar herramientas MCP (Síncrono)"""
@@ -75,8 +74,8 @@ class AutoGenGeminiClient:
             except Exception as e:
                 return f"❌ Error ejecutando {function_name}: {str(e)}"
         
-        # Registrar herramientas (Importante para que 'query_dollar' pueda usarlas)
-        self.call_mcp_tool = call_mcp_tool # <--- AÑADIR ESTA LÍNEA para usarla después
+        # Registrar herramientas
+        self.call_mcp_tool = call_mcp_tool 
         
         function_map = {}
         for tool in mcp_server.get_tools():
@@ -85,13 +84,13 @@ class AutoGenGeminiClient:
         self.user_proxy.register_function(function_map=function_map)
     
     def query_dollar(self, question: str) -> str:
-        """Consulta usando nuestro adaptador Gemini directamente - LÓGICA CORREGIDA"""
+        """Consulta usando el adaptador Gemini directamente"""
         try:
             print(f"🔍 Consulta: {question}")
             
             # --- 1. PREPARACIÓN DEL PROMPT ---
             prompt = f"""
-            Eres un analista financiero especializado en el dólar argentino.
+            Sos un analista financiero especializado en el dólar argentino.
             
             Consulta del usuario: {question}
             
@@ -110,7 +109,6 @@ class AutoGenGeminiClient:
                 print("🛠️ Detectada solicitud de historial. Ejecutando herramienta...")
                 
                 # Simple heurística: Extraer tipo (o usar 'blue') y días (o usar 7)
-                # NOTA: Mejorar para extraer dinámicamente el tipo y días de 'question'
                 dollar_type = 'blue' 
                 days = 7 
                 

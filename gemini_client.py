@@ -24,7 +24,6 @@ class DollarClientGemini:
                 if 'generateContent' in model.supported_generation_methods:
                     print(f"  ✅ {model.name}")
             
-            # Usar gemini-1.5-flash o gemini-1.5-pro que son los actuales
             self.model = genai.GenerativeModel('gemini-2.5-flash')
             print("✅ Gemini configurado correctamente con gemini-2.5-flash")
             
@@ -51,7 +50,7 @@ class DollarClientGemini:
             oficial_price = self.get_server_data('/dollar/oficial')
             
             prompt = f"""
-            Eres un experto analista financiero especializado en el dólar estadounidense vs peso argentino.
+            Sos un experto analista financiero especializado en el dólar estadounidense vs peso argentino.
 
             DATOS ACTUALES DISPONIBLES:
             {available_types}
@@ -63,10 +62,9 @@ class DollarClientGemini:
             INSTRUCCIONES:
             - Responde ÚNICAMENTE en español
             - Sé claro y conciso
-            - Usa emojis para hacerlo más amigable
-            - Si preguntan por precios actuales, menciona los tipos disponibles
-            - Si preguntan por evolución, sugiere consultar el historial
-            - Explica las diferencias entre los tipos de dólar cuando sea relevante
+            - Si preguntás por precios actuales, mencioná los tipos disponibles
+            - Si preguntás por evolución, sugerí consultar el historial
+            - Explicá las diferencias entre los tipos de dólar cuando sea relevante
 
             PREGUNTA DEL USUARIO: {question}
 
