@@ -145,7 +145,6 @@ D -- 7. Resultado Herramienta --> B;
 B -- 8. Prompt + Datos --> C;
 C -- 9. Respuesta Final] --> B;
 B --> A;
-```
 
 ## 🎯 Casos de Uso
 
@@ -167,6 +166,7 @@ Este proyecto está bajo la Licencia Apache 2.0 - ver el archivo [LICENSE](https
 _Última actualización: Octubre 2025_
 
 </div>
+
 
 
 
