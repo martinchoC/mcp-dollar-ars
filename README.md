@@ -157,7 +157,7 @@ B --> A;
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia Apache 2.0 - ver el archivo [LICENSE](https://license/) para detalles.
+Este proyecto está bajo la Licencia Apache 2.0 - ver el archivo [LICENSE](https://github.com/martinchoC/mcp-dollar-ars/blob/main/LICENSE) para detalles.
 
 ----------
 <div  align="center">
@@ -167,6 +167,7 @@ Este proyecto está bajo la Licencia Apache 2.0 - ver el archivo [LICENSE](https
 _Última actualización: Octubre 2025_
 
 </div>
+
 
 
 
