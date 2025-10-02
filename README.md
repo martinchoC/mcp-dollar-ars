@@ -135,17 +135,18 @@ mcp-dollar-ars/
 
 ```mermaid
 graph TD
-    A[1. Usuario: Consulta] --> B{autogen_gemini_client.py};
-    B --> C[2. Gemini 2.5 Flash (LLM)];
-    C -- 3. Decide usar Herramienta --> B;    
-    B -- 4. Ejecuta Wrapper (call_mcp_tool) --> D[mcp_server.py (Capa MCP)];    
-    D -- 5. Petición HTTP --> E[dollar_server.py (API Datos)];    
-    E -- 6. Respuesta Datos (JSON/Texto) --> D;    
-    D -- 7. Resultado de Herramienta --> B;    
-    B -- 8. Prompt + Datos --> C;    
-    C -- 9. Respuesta Final Formateada --> B;    
-    B --> A;
-```  
+A[1. Usuario: Consulta] --> B{autogen_gemini_client.py};
+B --> C[2. Gemini 2.5 Flash (LLM)];
+C -- 3. Decide usar Herramienta --> B;
+B -- 4. Ejecuta Wrapper (call_mcp_tool) --> D[mcp_server.py (Capa MCP)];
+D -- 5. Petición HTTP --> E[dollar_server.py (API Datos)];
+E -- 6. Respuesta Datos] --> D;
+D -- 7. Resultado Herramienta --> B;
+B -- 8. Prompt + Datos --> C;
+C -- 9. Respuesta Final] --> B;
+B --> A;
+```
+
 ## 🎯 Casos de Uso
 
 -  **💼 Finanzas Personales**: Seguimiento de tipos de cambio
@@ -166,5 +167,6 @@ Este proyecto está bajo la Licencia Apache 2.0 - ver el archivo [LICENSE](https
 _Última actualización: Octubre 2025_
 
 </div>
+
 
 
