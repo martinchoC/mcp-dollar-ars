@@ -103,12 +103,19 @@ El sistema entiende consultas en lenguaje natural:
 
 mcp-dollar-ars/
 ├── **__init__.py** # 🚀 Punto de inicio del sistema (Arranca Servidor y Cliente
+
 ├── **dollar_server.py** # 📡 Servidor Flask con APIs REST (Datos reales/simulados)
+
 ├── **mcp_server.py** # 🔧 Implementa el Servidor MCP (wrapper de herramientas)
+
 ├── **gemini_autogen_adapter.py** # ⚙️ Adaptador para conectar Gemini con AutoGen
+
 ├── **autogen_gemini_client.py** # 🧠 Cliente principal (Agentes AutoGen + Gemini)
+
 ├── requirements.txt # Dependencias
+
 ├── .env # Variables de entorno (GEMINI_API_KEY)
+
 └── README.md # Documentación
 
 ---
@@ -155,4 +162,5 @@ Este proyecto está bajo la Licencia Apache 2.0 - ver el archivo [LICENSE](https
 **Desarrollado por Martin Castro y Carlos Almaraz para la materia Sistemas Inteligentes**
 
 _Última actualización: Octubre 2025_
+
 </div>
